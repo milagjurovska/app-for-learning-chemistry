@@ -1,0 +1,116 @@
+.test-tube {
+    position: relative;
+    width: 50px;
+    height: 185px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.tube-body {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 10px 30px 30px;
+    box-shadow: inset 0 -10px 0 rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    border: 2px solid #555;
+    position: relative;
+}
+
+.liquid {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.check-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #344e41;
+    color: #F5F5DC;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.check-button:hover {
+    background-color: #2a3f34;
+}
+
+.reaction-message {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.reaction-message.correct {
+    color: #4caf50;
+}
+
+.reaction-message.incorrect {
+    color: #d9534f;
+}
+
+
+.h {
+    background-color: #a2d2ff;
+}
+
+.c {
+    background-color: #fdffb6;
+}
+
+.na {
+    background-color: #ffc8dd;
+}
+
+.o {
+    background-color: #fec89a;
+}
+
+.cl {
+    background-color: #cdb4db;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.element-container {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    cursor: pointer;
+    color: #343a40;
+    text-shadow: 0.5px 0 #343a40;
+}
+
+.test-tube-container {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.test-tubes {
+    position: relative;
+    z-index: 1;
+}
