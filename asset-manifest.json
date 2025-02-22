@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/app-for-leraning-chemistry/static/css/main.5b569785.css",
+    "main.js": "/app-for-leraning-chemistry/static/js/main.21da33ee.js",
+    "static/js/453.5c0c9f71.chunk.js": "/app-for-leraning-chemistry/static/js/453.5c0c9f71.chunk.js",
+    "static/media/chemistryset_dribbble.gif": "/app-for-leraning-chemistry/static/media/chemistryset_dribbble.962b99df1375b50ec79a.gif",
+    "static/media/fluorine1.png": "/app-for-leraning-chemistry/static/media/fluorine1.cb51185360a3fc6af4d8.png",
+    "static/media/oxygen1.png": "/app-for-leraning-chemistry/static/media/oxygen1.27aabefc4c961f399da6.png",
+    "static/media/oxygen.png": "/app-for-leraning-chemistry/static/media/oxygen.636de9960a66dc747700.png",
+    "static/media/chlorine.png": "/app-for-leraning-chemistry/static/media/chlorine.41bacd474eb270e38711.png",
+    "static/media/carbon.png": "/app-for-leraning-chemistry/static/media/carbon.80f4e66fa91719aed194.png",
+    "static/media/nitrogen1.png": "/app-for-leraning-chemistry/static/media/nitrogen1.c5ad6417ce2f5974ef25.png",
+    "static/media/nitrogen.png": "/app-for-leraning-chemistry/static/media/nitrogen.d3021716d77e8df62315.png",
+    "static/media/chlorine1.png": "/app-for-leraning-chemistry/static/media/chlorine1.1f94c83e367281c1b1d3.png",
+    "static/media/hydrogen1.png": "/app-for-leraning-chemistry/static/media/hydrogen1.d2fb9bd9bff08e43ad63.png",
+    "static/media/hydrogen.png": "/app-for-leraning-chemistry/static/media/hydrogen.02cc147e0cfd23b430ef.png",
+    "static/media/fluorine.png": "/app-for-leraning-chemistry/static/media/fluorine.58b239c0cbd621fecf93.png",
+    "static/media/carbon1.png": "/app-for-leraning-chemistry/static/media/carbon1.a6b21c7eb323c8a033df.png",
+    "static/media/table salt.png": "/app-for-leraning-chemistry/static/media/table salt.e13fc061949f09c2d8f4.png",
+    "index.html": "/app-for-leraning-chemistry/index.html",
+    "main.5b569785.css.map": "/app-for-leraning-chemistry/static/css/main.5b569785.css.map",
+    "main.21da33ee.js.map": "/app-for-leraning-chemistry/static/js/main.21da33ee.js.map",
+    "453.5c0c9f71.chunk.js.map": "/app-for-leraning-chemistry/static/js/453.5c0c9f71.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b569785.css",
+    "static/js/main.21da33ee.js"
+  ]
+}
