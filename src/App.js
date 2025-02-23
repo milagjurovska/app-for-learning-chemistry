@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Landing from "./components/Landing.js";
-import Chapter1 from "./components/Chapter1.js";
-import Chapter2 from "./components/Chapter2.js";
-import { GoTriangleUp,GoTriangleDown } from "react-icons/go";
+import Landing from './components/Landing.js';
+import Chapter1 from './components/Chapter1.js';
+import Chapter2 from './components/Chapter2.js';
+import { GoTriangleUp, GoTriangleDown } from 'react-icons/go';
 import './App.css';
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
             <div>
                 <div id="fullMenu">
                     <div id="menuButton">
-                        <span onClick={toggleMenu}>Chapters {menuOpen ? <GoTriangleDown/> : <GoTriangleUp/>}</span>
+                        <span onClick={toggleMenu}>Chapters {menuOpen ? <GoTriangleDown /> : <GoTriangleUp />}</span>
                     </div>
                     <div className={`menu ${menuOpen ? 'open' : ''}`} id="menu">
                         <Link to="/" onClick={toggleMenu}>Introduction</Link>
@@ -29,9 +30,10 @@ function App() {
 
                 <div id="osnova">
                     <Routes>
-                        <Route path="/" element={<Landing/>}/>
-                        <Route path="/chapter1" element={<Chapter1/>}/>
-                        <Route path="/chapter2" element={<Chapter2/>}/>
+                        <Route path="/" element={<Landing />} />
+                        <Route path="/chapter1" element={<Chapter1 />} />
+                        <Route path="/chapter2" element={<Chapter2 />} />
+                        <Route path="*" element={<Navigate to="/" />} />
                     </Routes>
                 </div>
             </div>
