@@ -98,38 +98,44 @@ function Landing() {
                         <img src={gif} alt="Gif of flasks"/>
                     </div>
                 </div>
-                <div id="video">
-                    <iframe
-                        id="yt-video"
-                        width="840"
-                        height="472.5"
-                        src="https://www.youtube.com/embed/rTC7w6bKh_4?enablejsapi=1"
-                        title="YouTube video player"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                    ></iframe>
+                <div id="videoItekst">
+                    <div id="video">
+                        <iframe
+                            id="yt-video"
+                            width="600"
+                            height="380"
+                            src="https://www.youtube.com/embed/rTC7w6bKh_4?enablejsapi=1"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                        ></iframe>
+                    </div>
+                    <div id='sledno'>
+                        <p>Atoms bond together in different ways to form molecules, and the type of bond determines the
+                            properties of the substance:</p> <br/>
+                        <ol>
+                            <li><b>Ionic Bonds: </b>Formed when one atom donates an electron to another, creating
+                                positive
+                                and negative ions that attract each other. Example: Sodium chloride (table salt).
+                            </li>
+                            <li><b>Covalent Bonds: </b>Formed when two atoms share electrons, creating a strong bond.
+                                Example: Water (H₂O).
+                            </li>
+                            <li><b>Metallic Bonds: </b>Found in metals, where electrons are shared across many atoms,
+                                giving
+                                metals their strength and conductivity.
+                            </li>
+                        </ol>
+                        <br/>
+                        <p>These bond types are fundamental to the structure and behavior of all matter. Let's see what
+                            you
+                            learned from this lesson. Test your knowledge with this easy five question
+                            quiz!
+                        </p>
+                    </div>
                 </div>
-                <div id='sledno'>
-                    <p>Atoms bond together in different ways to form molecules, and the type of bond determines the
-                        properties of the substance:</p> <br/>
-                    <ol>
-                        <li><b>Ionic Bonds: </b>Formed when one atom donates an electron to another, creating positive
-                            and negative ions that attract each other. Example: Sodium chloride (table salt).
-                        </li>
-                        <li><b>Covalent Bonds: </b>Formed when two atoms share electrons, creating a strong bond.
-                            Example: Water (H₂O).
-                        </li>
-                        <li><b>Metallic Bonds: </b>Found in metals, where electrons are shared across many atoms, giving
-                            metals their strength and conductivity.
-                        </li>
-                    </ol>
-                    <br/>
-                    <p>These bond types are fundamental to the structure and behavior of all matter. Let's see what you
-                        learned from this lesson. Test your knowledge with this easy five question
-                        quiz!
-                    </p>
-                </div>
+
             </div>
             <div className='quiz'>
                 <h2>Quiz</h2>
@@ -141,7 +147,7 @@ function Landing() {
                     </>
                 ) : (
                     <>
-                    <h3>{index + 1}. {question.question}</h3>
+                        <h3>{index + 1}. {question.question}</h3>
                         <ul>
                             <li ref={opt1} onClick={(ele) => prov(ele, 1)}>{question.option1}</li>
                             <li ref={opt2} onClick={(ele) => prov(ele, 2)}>{question.option2}</li>

@@ -17,6 +17,7 @@ function App() {
     const [user, setUser]=useState(null);
     const [isOpenSign, setIsOpenSign]=useState(false);
     const [isOpenLog, setIsOpenLog]=useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
 
     const toggleMenu = () => {
@@ -43,13 +44,28 @@ function App() {
         return ()=>unsubscribe();
     }, []);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
         <Router>
             <div>
-                <div id="gornomeni">
+                <div id="gornomeni" style={{ backgroundColor: scrolled ? "#344e41" : "#ddeddd" }}>
                     <div id="fullMenu">
-                        <div id="menuButton">
-                            <span onClick={toggleMenu}>Chapters {menuOpen ? <GoTriangleDown/> : <GoTriangleUp/>}</span>
+                        <div id="menuButton" >
+                            <span onClick={toggleMenu} style={{ color: scrolled ? "white" : "black" }}>Chapters {menuOpen ? <GoTriangleDown/> : <GoTriangleUp/>}</span>
                         </div>
                         <div className={`menu ${menuOpen ? 'open' : ''}`} id="menu">
                             <Link to="/" onClick={toggleMenu}>Introduction</Link>
@@ -58,10 +74,10 @@ function App() {
                         </div>
                     </div>
 
-                    <div className="menistuff">
-                        <Link className="vnatre" to="/SignUp" onClick={signupform}>Sign Up</Link>
-                        <Link className="vnatre"  to="/Login" onClick={loginform}>Log In</Link>
-                        <Link className="vnatre" to="/Logout" >Log Out</Link>
+                    <div className="menistuff" >
+                        <Link className="vnatre" to="/SignUp" onClick={signupform} style={{ color: scrolled ? "white" : "black" }}>Sign Up</Link>
+                        <Link className="vnatre"  to="/Login" onClick={loginform} style={{ color: scrolled ? "white" : "black" }}>Log In</Link>
+                        <Link className="vnatre" to="/Logout" style={{ color: scrolled ? "white" : "black" }}>Log Out</Link>
                     </div>
                 </div>
 
