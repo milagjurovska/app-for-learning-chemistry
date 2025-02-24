@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useSpring, animated } from 'react-spring';
 import Element from './Element.js';
 import '../App.css';
 
@@ -89,20 +88,12 @@ const MainContainer = () => {
         return { background: 'transparent' };
     };
 
-    const pourAnimation = useSpring({
-        height: pouredElements.length > 0 ? '100%' : '0%',
-        config: { duration: 1000 },
-    });
 
     return (
         <div className="main-container">
             <div className="top-container">
                 <div className="test-tube">
                     <div className="tube-body">
-                        <animated.div
-                            className="liquid"
-                            style={{ ...pourAnimation, ...getBackgroundStyle() }}
-                        ></animated.div>
                     </div>
                 </div>
             </div>

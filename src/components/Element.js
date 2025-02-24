@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Element.css';
-import {useSpring, animated} from "react-spring";
 
 const Element = ({ element, onClick, isEmpty, elements }) => {
     const backgroundColor = isEmpty
