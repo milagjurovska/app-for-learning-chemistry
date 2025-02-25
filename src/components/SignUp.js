@@ -8,6 +8,14 @@ function SignUp(){
 
     const handleSignUp=async (e)=>{
         e.preventDefault();
+        const hasNumber = /\d/;
+        const hasUpperCase = /[A-Z]/;
+
+        if (!hasNumber.test(password) || !hasUpperCase.test(password)) {
+            alert("Password must contain at least one uppercase letter and one number.");
+            return;
+        }
+
         try{
             const userCred=await createUserWithEmailAndPassword(auth,email,password);
             console.log("User registered:", userCred.user);
@@ -16,24 +24,25 @@ function SignUp(){
         }
     };
 
+
     return(<div>
             <h2>Sign Up</h2>
-            <form onSubmit={handleSignUp}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
+            <form onSubmit={handleSignUp} className="form">
+                <p>Please enter your email.</p>
+                <input type="email" placeholder="example@email.com" value={email}
+                       onChange={(e) => setEmail(e.target.value)}
+                       required/>
+                <p>Please enter a password that contains at least one uppercase letter and a number.</p>
                 <input
                     type="password"
-                    placeholder="Password"
+                    placeholder="your new password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Sign Up</button>
+                <div>
+                    <button type="submit">Sign Up</button>
+                </div>
             </form>
         </div>
     );

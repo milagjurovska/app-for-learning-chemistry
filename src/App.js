@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Navigate } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Landing from './components/Landing.js';
 import Chapter1 from './components/Chapter1.js';
 import Chapter2 from './components/Chapter2.js';
@@ -91,6 +91,22 @@ function App() {
                     </Routes>
                 </div>
             </div>
+            {isOpenSign && (
+                <div className="modal_form">
+                    <div className="modal-form-content">
+                        <span className="close" onClick={() => setIsOpenSign(false)}>&times;</span>
+                        <SignUp />
+                    </div>
+                </div>
+            )}
+            {isOpenLog && (
+                <div className="modal_form">
+                    <div className="modal-form-content">
+                        <span className="close" onClick={() => setIsOpenLog(false)}>&times;</span>
+                        <Login />
+                    </div>
+                </div>
+            )}
         </Router>
     );
 }
