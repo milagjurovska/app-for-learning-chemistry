@@ -75,9 +75,18 @@ function App() {
                     </div>
 
                     <div className="menistuff" >
-                        <Link className="vnatre" to="/SignUp" onClick={signupform} style={{ color: scrolled ? "white" : "black" }}>Sign Up</Link>
-                        <Link className="vnatre"  to="/Login" onClick={loginform} style={{ color: scrolled ? "white" : "black" }}>Log In</Link>
+                        {user ? (
+                            <span className="vnatre" style={{ color: scrolled ? "white" : "black" }}>
+                                {user.displayName}
+                            </span>
+                        ) : (
+                            <>
+                                <span className="vnatre" onClick={() => setIsOpenSign(true)} style={{ color: scrolled ? "white" : "black" }}>Sign Up</span>
+                                <span className="vnatre" onClick={() => setIsOpenLog(true)} style={{ color: scrolled ? "white" : "black" }}>Log In</span>
+                            </>
+                        )}
                         <Link className="vnatre" to="/Logout" style={{ color: scrolled ? "white" : "black" }}>Log Out</Link>
+
                     </div>
                 </div>
 
@@ -95,7 +104,7 @@ function App() {
                 <div className="modal_form">
                     <div className="modal-form-content">
                         <span className="close" onClick={() => setIsOpenSign(false)}>&times;</span>
-                        <SignUp />
+                        <SignUp onSuccess={() => setIsOpenSign(false)} />
                     </div>
                 </div>
             )}
@@ -103,7 +112,7 @@ function App() {
                 <div className="modal_form">
                     <div className="modal-form-content">
                         <span className="close" onClick={() => setIsOpenLog(false)}>&times;</span>
-                        <Login />
+                        <Login onSuccess={() => setIsOpenLog(false)} />
                     </div>
                 </div>
             )}

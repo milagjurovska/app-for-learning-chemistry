@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {auth} from "../firebase.js";
 import {signInWithEmailAndPassword} from "firebase/auth";
 
-function Login(){
+function Login(onSuccess){
     const [email,setEmail]=useState("")
     const [password, setPassword]=useState("")
 
@@ -11,7 +11,9 @@ function Login(){
         try{
             const userCred=await signInWithEmailAndPassword(auth, email, password);
             console.log("User logged in: ",userCred.user);
+            onSuccess();
         }catch (error){
+            alert("Error logging in!");
             console.log("Error logging in: ",error.message)
         }
     }
@@ -28,7 +30,7 @@ function Login(){
                        onChange={(e) => setPassword(e.target.value)}
                        required/>
                 <div>
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">Log In</button>
                 </div>
             </form>
         </div>

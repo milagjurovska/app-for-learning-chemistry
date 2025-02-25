@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/app-for-learning-chemistry/static/css/main.505999b3.css",
-    "main.js": "/app-for-learning-chemistry/static/js/main.2e8fe4ef.js",
+    "main.css": "/app-for-learning-chemistry/static/css/main.bbe1a66e.css",
+    "main.js": "/app-for-learning-chemistry/static/js/main.8f0c9bae.js",
     "static/js/453.5c0c9f71.chunk.js": "/app-for-learning-chemistry/static/js/453.5c0c9f71.chunk.js",
     "static/media/chemistryset_dribbble.gif": "/app-for-learning-chemistry/static/media/chemistryset_dribbble.962b99df1375b50ec79a.gif",
     "static/media/fluorine1.png": "/app-for-learning-chemistry/static/media/fluorine1.cb51185360a3fc6af4d8.png",
@@ -18,12 +18,12 @@
     "static/media/carbon1.png": "/app-for-learning-chemistry/static/media/carbon1.a6b21c7eb323c8a033df.png",
     "static/media/table salt.png": "/app-for-learning-chemistry/static/media/table salt.e13fc061949f09c2d8f4.png",
     "index.html": "/app-for-learning-chemistry/index.html",
-    "main.505999b3.css.map": "/app-for-learning-chemistry/static/css/main.505999b3.css.map",
-    "main.2e8fe4ef.js.map": "/app-for-learning-chemistry/static/js/main.2e8fe4ef.js.map",
+    "main.bbe1a66e.css.map": "/app-for-learning-chemistry/static/css/main.bbe1a66e.css.map",
+    "main.8f0c9bae.js.map": "/app-for-learning-chemistry/static/js/main.8f0c9bae.js.map",
     "453.5c0c9f71.chunk.js.map": "/app-for-learning-chemistry/static/js/453.5c0c9f71.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.505999b3.css",
-    "static/js/main.2e8fe4ef.js"
+    "static/css/main.bbe1a66e.css",
+    "static/js/main.8f0c9bae.js"
   ]
 }

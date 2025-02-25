@@ -1,9 +1,12 @@
 import React, {useState} from "react";
-import {auth} from "../firebase.js";
-import {createUserWithEmailAndPassword} from "firebase/auth";
+import {auth, db} from "../firebase.js";
+import {createUserWithEmailAndPassword, updateProfile} from "firebase/auth";
+import {doc, setDoc} from "firebase/firestore";
 
-function SignUp(){
+function SignUp({onSuccess}){
     const [email,setEmail]=useState("");
+    const[firstName,setFirstName]=useState("");
+    const[lastName,setLastName]=useState("")
     const [password, setPassword]=useState("");
 
     const handleSignUp=async (e)=>{
@@ -11,15 +14,30 @@ function SignUp(){
         const hasNumber = /\d/;
         const hasUpperCase = /[A-Z]/;
 
-        if (!hasNumber.test(password) || !hasUpperCase.test(password)) {
-            alert("Password must contain at least one uppercase letter and one number.");
+        if (!hasNumber.test(password)) {
+            alert("Password must contain at least one number.");
+            return;
+        }
+        if (!hasUpperCase.test(password)) {
+            alert("Password must contain at least one uppercase letter.");
             return;
         }
 
         try{
             const userCred=await createUserWithEmailAndPassword(auth,email,password);
-            console.log("User registered:", userCred.user);
+            const user=userCred.user;
+            await updateProfile(user, { displayName: `${firstName} ${lastName}` });
+
+            await setDoc(doc(db, "users", user.uid), {
+                firstName,
+                lastName,
+                email
+            });
+
+            console.log("User registered:", user);
+            onSuccess();
         }catch (error){
+            alert("Error signing up!");
             console.error("Error signing up:", error.message);
         }
     };
