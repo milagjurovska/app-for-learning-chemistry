@@ -37,8 +37,12 @@ function SignUp({onSuccess}){
             console.log("User registered:", user);
             onSuccess();
         }catch (error){
-            alert("Error signing up!");
-            console.error("Error signing up:", error.message);
+            if (error.code === 'auth/email-already-in-use') {
+                alert("Email already in use. Please log in or use a different email.");
+            } else {
+                alert("Error signing up!");
+                console.error("Error signing up:", error.message);
+            }
         }
     };
 

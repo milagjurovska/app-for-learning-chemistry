@@ -24,15 +24,6 @@ function App() {
         setMenuOpen(!menuOpen);
     };
 
-    const signupform=()=>{
-        setIsOpenSign(true);
-    }
-
-    const loginform=()=>{
-        setIsOpenLog(true);
-
-    }
-
     useEffect(() => {
         const unsubscribe=onAuthStateChanged(auth,(user)=>{
             if(user){
@@ -62,7 +53,7 @@ function App() {
     return (
         <Router>
             <div>
-                <div id="gornomeni" style={{ backgroundColor: scrolled ? "#344e41" : "#ddeddd" }}>
+                <div id="gornomeni" style={{ backgroundColor: scrolled ? "#0d5b11" : "white" }}>
                     <div id="fullMenu">
                         <div id="menuButton" >
                             <span onClick={toggleMenu} style={{ color: scrolled ? "white" : "black" }}>Chapters {menuOpen ? <GoTriangleDown/> : <GoTriangleUp/>}</span>
