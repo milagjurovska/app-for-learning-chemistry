@@ -53,12 +53,12 @@ function App() {
     return (
         <Router>
             <div>
-                <div id="gornomeni" style={{ backgroundColor: scrolled ? "#0d5b11" : "white" }}>
+                <div id="gornomeni" style={{ backgroundColor: scrolled ? "#0d5b11" : "#fcfcf7" }}>
                     <div id="fullMenu">
                         <div id="menuButton" >
                             <span onClick={toggleMenu} style={{ color: scrolled ? "white" : "black" }}>Chapters {menuOpen ? <GoTriangleDown/> : <GoTriangleUp/>}</span>
                         </div>
-                        <div className={`menu ${menuOpen ? 'open' : ''}`} id="menu">
+                        <div className={`menu ${menuOpen ? 'open' : ''}`} id="menu" style={{ backgroundColor: scrolled ? "#0d5b11" : "#fcfcf7", color:scrolled ? "white" : "black"}}>
                             <Link to="/" onClick={toggleMenu}>Introduction</Link>
                             <Link to="/chapter1" onClick={toggleMenu}>Chapter 1</Link>
                             <Link to="/chapter2" onClick={toggleMenu}>Chapter 2</Link>
