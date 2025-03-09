@@ -50,7 +50,15 @@ function SignUp({onSuccess}){
     return(<div>
             <h2>Sign Up</h2>
             <form onSubmit={handleSignUp} className="form">
-                <p>Please enter your email.</p>
+                <p>Name:</p>
+                <input type="text" placeholder="John" value={firstName}
+                       onChange={(e) => setFirstName(e.target.value)}
+                       required/>
+                <p>Surname:</p>
+                <input type="text" placeholder="Doe" value={lastName}
+                       onChange={(e) => setLastName(e.target.value)}
+                       required/>
+                <p>Email:</p>
                 <input type="email" placeholder="example@email.com" value={email}
                        onChange={(e) => setEmail(e.target.value)}
                        required/>
