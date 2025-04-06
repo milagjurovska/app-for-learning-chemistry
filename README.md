@@ -5,7 +5,7 @@ This app is easy to use and explains chemical concepts in a way that children fr
 
 ## Getting started
 
-This site will take you to the page: https://milagjurovska.github.io/app-for-learning-chemistry/
+This link will take you to the page: https://milagjurovska.github.io/app-for-learning-chemistry/
 
 ## Technologies used:
 REACT.js, HTML, CSS, Firebase 
