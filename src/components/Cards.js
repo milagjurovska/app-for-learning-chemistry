@@ -14,30 +14,30 @@ import fluorine1 from '../images/fluorine1.png';
 import chlorine from '../images/chlorine.png';
 import chlorine1 from '../images/chlorine1.png';
 
+const initialCards = [
+    {id: 0, name: 'hydrogen', status: '', img: hydrogen},
+    {id: 0, name: 'hydrogen', status: '', img: hydrogen1},
+    {id: 1, name: 'carbon', status: '', img: carbon},
+    {id: 1, name: 'carbon', status: '', img: carbon1},
+    {id: 2, name: 'nitrogen', status: '', img: nitrogen},
+    {id: 2, name: 'nitrogen', status: '', img: nitrogen1},
+    {id: 3, name: 'oxygen', status: '', img: oxygen},
+    {id: 3, name: 'oxygen', status: '', img: oxygen1},
+    {id: 4, name: 'fluorine', status: '', img: fluorine},
+    {id: 4, name: 'fluorine', status: '', img: fluorine1},
+    {id: 5, name: 'chlorine', status: '', img: chlorine},
+    {id: 5, name: 'chlorine', status: '', img: chlorine1}
+];
+
 export default function Cards(){
     const navigate = useNavigate();
-
-    const initialCards = [
-        {id: 0, name: 'hydrogen', status: '', img: hydrogen},
-        {id: 0, name: 'hydrogen', status: '', img: hydrogen1},
-        {id: 1, name: 'carbon', status: '', img: carbon},
-        {id: 1, name: 'carbon', status: '', img: carbon1},
-        {id: 2, name: 'nitrogen', status: '', img: nitrogen},
-        {id: 2, name: 'nitrogen', status: '', img: nitrogen1},
-        {id: 3, name: 'oxygen', status: '', img: oxygen},
-        {id: 3, name: 'oxygen', status: '', img: oxygen1},
-        {id: 4, name: 'fluorine', status: '', img: fluorine},
-        {id: 4, name: 'fluorine', status: '', img: fluorine1},
-        {id: 5, name: 'chlorine', status: '', img: chlorine},
-        {id: 5, name: 'chlorine', status: '', img: chlorine1}
-    ];
 
     const [cards, setCards] = useState([]);
     const [prev, setPrev] = useState(-1);
     const [completed, setCompleted] = useState(false);
 
     useEffect(() => {
-        const shuffledCards = initialCards.sort(() => Math.random() - 0.5);
+        const shuffledCards = [...initialCards].sort(() => Math.random() - 0.5);
         setCards(shuffledCards);
     }, []);
     const goToChapter2=()=>{

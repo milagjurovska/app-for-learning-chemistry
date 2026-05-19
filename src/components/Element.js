@@ -1,33 +1,7 @@
 import React from 'react';
 import '../Element.css';
 
-const Element = ({ element, onClick, isEmpty, elements }) => {
-    const backgroundColor = isEmpty
-        ? elements.length === 1
-            ? getColor(elements[0])
-            : elements.length === 2
-                ? `linear-gradient(to top, ${elements.map(el => getColor(el)).join(', ')})`
-                : null
-        : getColor(element);
-
-    const handleClick = (element) => {
-        if (!isEmpty) {
-            onClick(element);
-        }
-    };
-
-    return (
-        <div className="test-tube" onClick={handleClick}>
-            <div className="tube-body" style={{background: backgroundColor}}>
-                {!isEmpty && <p className="element-symbol">{element}</p>}
-            </div>
-        </div>
-    );
-};
-
-
-
-const getColor = (element) => {
+export const getElementColor = (element) => {
     switch (element) {
         case 'H':
             return '#a2d2ff';
@@ -42,6 +16,37 @@ const getColor = (element) => {
         default:
             return '#ffffff';
     }
+};
+
+const Element = ({ element, onClick, isEmpty, elements = [], isPouring = false }) => {
+    const backgroundColor = isEmpty
+        ? elements.length === 1
+            ? getElementColor(elements[0])
+            : elements.length === 2
+                ? `linear-gradient(to top, ${elements.map(el => getElementColor(el)).join(', ')})`
+                : null
+        : getElementColor(element);
+
+    const handleClick = () => {
+        if (!isEmpty) {
+            onClick(element);
+        }
+    };
+
+    return (
+        <button
+            type="button"
+            className={`test-tube ${isPouring ? "pouring" : ""}`}
+            onClick={handleClick}
+            aria-label={isEmpty ? "Empty test tube" : `Select ${element}`}
+            data-testid={isEmpty ? "empty-test-tube" : `element-${element}`}
+            style={{ "--liquid-color": backgroundColor }}
+        >
+            <div className="tube-body" style={{background: backgroundColor}}>
+                {!isEmpty && <p className="element-symbol">{element}</p>}
+            </div>
+        </button>
+    );
 };
 
 export default Element;

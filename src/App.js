@@ -4,11 +4,11 @@ import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Landing from './components/Landing.js';
 import Chapter1 from './components/Chapter1.js';
 import Chapter2 from './components/Chapter2.js';
+import Profile from './components/Profile.js';
 import {auth} from "./firebase.js"
 import SignUp from "./components/SignUp.js";
 import Login from "./components/Login.js";
-import Logout from "./components/Logout.js";
-import {onAuthStateChanged} from "firebase/auth"
+import {onAuthStateChanged, signOut} from "firebase/auth"
 import { GoTriangleUp, GoTriangleDown } from 'react-icons/go';
 import './App.css';
 
@@ -24,6 +24,23 @@ function App() {
         setMenuOpen(!menuOpen);
     };
 
+    const getNavUsername = () => {
+        if (!user) {
+            return "";
+        }
+
+        const fallbackName = user.email ? user.email.split("@")[0] : "profile";
+        return `@${user.displayName || fallbackName}`;
+    };
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+        } catch (error) {
+            console.error("Error signing out:", error.message);
+        }
+    };
+
     useEffect(() => {
         const unsubscribe=onAuthStateChanged(auth,(user)=>{
             if(user){
@@ -32,7 +49,11 @@ function App() {
                 setUser(null);
             }
         })
-        return ()=>unsubscribe();
+        return () => {
+            if (typeof unsubscribe === "function") {
+                unsubscribe();
+            }
+        };
     }, []);
 
     useEffect(() => {
@@ -53,10 +74,12 @@ function App() {
     return (
         <Router>
             <div>
-                <div id="gornomeni" style={{ backgroundColor: scrolled ? "#0d5b11" : "#fcfcf7" }}>
+                <nav id="gornomeni" style={{ backgroundColor: scrolled ? "#0d5b11" : "#fcfcf7" }} aria-label="Primary navigation">
                     <div id="fullMenu">
                         <div id="menuButton" >
-                            <span onClick={toggleMenu} style={{ color: scrolled ? "white" : "black" }}>Chapters {menuOpen ? <GoTriangleDown/> : <GoTriangleUp/>}</span>
+                            <button className="chapters-toggle" onClick={toggleMenu} style={{ color: scrolled ? "white" : "black" }}>
+                                Chapters {menuOpen ? <GoTriangleDown/> : <GoTriangleUp/>}
+                            </button>
                         </div>
                         <div className={`menu ${menuOpen ? 'open' : ''}`} id="menu" style={{ backgroundColor: scrolled ? "#0d5b11" : "#fcfcf7", color:scrolled ? "white" : "black"}}>
                             <Link to="/" onClick={toggleMenu}>Introduction</Link>
@@ -67,19 +90,23 @@ function App() {
 
                     <div className="menistuff" >
                         {user ? (
-                            <span className="vnatre" style={{ color: scrolled ? "white" : "black" }}>
-                                {user.displayName}
-                            </span>
+                            <Link className="vnatre profile-link" to="/profile" style={{ color: scrolled ? "white" : "black" }}>
+                                {getNavUsername()}
+                            </Link>
                         ) : (
                             <>
-                                <span className="vnatre" onClick={() => setIsOpenSign(true)} style={{ color: scrolled ? "white" : "black" }}>Sign Up</span>
-                                <span className="vnatre" onClick={() => setIsOpenLog(true)} style={{ color: scrolled ? "white" : "black" }}>Log In</span>
+                                <button className="vnatre nav-action" onClick={() => setIsOpenSign(true)} style={{ color: scrolled ? "white" : "black" }}>Sign Up</button>
+                                <button className="vnatre nav-action" onClick={() => setIsOpenLog(true)} style={{ color: scrolled ? "white" : "black" }}>Log In</button>
                             </>
                         )}
-                        <Link className="vnatre" to="/Logout" style={{ color: scrolled ? "white" : "black" }}>Log Out</Link>
+                        {user && (
+                            <button className="vnatre nav-action" onClick={handleLogout} style={{ color: scrolled ? "white" : "black" }}>
+                                Log Out
+                            </button>
+                        )}
 
                     </div>
-                </div>
+                </nav>
 
 
                 <div id="osnova">
@@ -87,6 +114,7 @@ function App() {
                         <Route path="/" element={<Landing/>}/>
                         <Route path="/chapter1" element={<Chapter1/>}/>
                         <Route path="/chapter2" element={<Chapter2/>}/>
+                        <Route path="/profile" element={<Profile user={user}/>}/>
                         <Route path="*" element={<Navigate to="/"/>}/>
                     </Routes>
                 </div>
@@ -94,7 +122,7 @@ function App() {
             {isOpenSign && (
                 <div className="modal_form">
                     <div className="modal-form-content">
-                        <span className="close" onClick={() => setIsOpenSign(false)}>&times;</span>
+                        <button className="close" onClick={() => setIsOpenSign(false)} aria-label="Close sign up form">&times;</button>
                         <SignUp onSuccess={() => setIsOpenSign(false)} />
                     </div>
                 </div>
@@ -102,7 +130,7 @@ function App() {
             {isOpenLog && (
                 <div className="modal_form">
                     <div className="modal-form-content">
-                        <span className="close" onClick={() => setIsOpenLog(false)}>&times;</span>
+                        <button className="close" onClick={() => setIsOpenLog(false)} aria-label="Close login form">&times;</button>
                         <Login onSuccess={() => setIsOpenLog(false)} />
                     </div>
                 </div>

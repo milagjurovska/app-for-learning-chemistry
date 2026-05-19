@@ -140,9 +140,7 @@ function Chapter1(){
             <div id='memory'>
                 <div className="border-wrapper">
                     <h2>Memory Game</h2>
-                    <div className="container">
                     <Cards />
-                    </div>
                 </div>
             </div>
             <div className='one'>

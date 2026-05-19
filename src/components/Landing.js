@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gif from '../images/chemistryset_dribbble.gif';
 import { quiz } from "./Quiz.js";

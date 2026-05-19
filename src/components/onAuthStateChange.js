@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../firebase.js";
+import { auth } from "../firebase.js";
 import { onAuthStateChanged } from "firebase/auth";
 import SignUp from "./SignUp.js";
 import Login from "./Login.js";
@@ -9,7 +9,7 @@ function App() {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(db, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
             } else {
